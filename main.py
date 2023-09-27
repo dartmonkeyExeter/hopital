@@ -24,12 +24,13 @@ def add_patient():
     nameToAdd = str(input('name to add\n'))
     while True:
         priorityOrNormal = str(input('should they be added to (p)riority or (n)ormal queue?\n'))
-        doctorName = str(input('what doctor should they be with?\n'))
         if priorityOrNormal == 'p':
+            doctorName = str(input('what doctor should they be with?\n'))
             priorityQueue.append(nameToAdd.lower())
             priorityDoctor.append(doctorName)
             break
         elif priorityOrNormal == 'n':
+            doctorName = str(input('what doctor should they be with?\n'))
             normalQueue.append(nameToAdd.lower())
             normalDoctor.append(doctorName)
             break
@@ -38,7 +39,10 @@ def add_patient():
 
 
 def remove_patient():
-    whom = str(input(f'who to remove\npriority: {priorityQueue}\nnormal: {normalQueue}\n'))
+    s = ', '
+    p = s.join(priorityQueue)
+    n = s.join(normalQueue)
+    whom = str(input(f'who to remove\npriority: {p}\nnormal: {n}\n'))
     count = 0
     if whom in priorityQueue:
         for i in priorityQueue:
