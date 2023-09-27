@@ -1,4 +1,3 @@
-
 priorityQueue = []
 normalQueue = []
 priorityDoctor = []
@@ -22,7 +21,7 @@ def call_next_patient():
 
 def add_patient():
     nameToAdd = str(input('name to add\n'))
-    while True:
+    while True: 
         priorityOrNormal = str(input('should they be added to (p)riority or (n)ormal queue?\n'))
         if priorityOrNormal == 'p':
             doctorName = str(input('what doctor should they be with?\n'))
@@ -41,7 +40,7 @@ def add_patient():
 def remove_patient():
     s = ', '
     p = s.join(priorityQueue)
-    n = s.join(normalQueue)
+    n = s.join(normalQueue) # this and the prior two lines just make it look nicer when printed
     whom = str(input(f'who to remove\npriority: {p}\nnormal: {n}\n'))
     count = 0
     if whom in priorityQueue:
@@ -62,7 +61,8 @@ def remove_patient():
 
 def main(priorityQueue, normalQueue, priorityDoctor, normalDoctor):
     while True:
-        callOrQueue = str(input('do you want to (c)all the next patient, (a)dd a patient, (r)emove a patient? type clear to clear both queues.\n'))
+        callOrQueue = str(input('do you want to (c)all the next patient, (a)dd a patient, (r)emove a patient? type '
+                                'clear to clear both queues.\n'))
         if callOrQueue == 'c':
             call_next_patient()
         elif callOrQueue == 'a':
