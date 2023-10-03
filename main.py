@@ -1,13 +1,11 @@
 # initialize empty queues and doctor lists
 
-doctors = []
-
 class Doctor:
     def __init__(self, name, queue):
         self.queue = queue
         self.name = name
 
-def doctor_define(doctors):
+def doctor_define():
     doctors = []
     while True:
         num_doctors = input('how many doctors are here today?\n')
@@ -28,12 +26,13 @@ def doctor_define(doctors):
 
     for i, doctor in enumerate(doctors):
         print(f"Doctor {i + 1}: {doctor.name}")
+    return doctors
 
 
 # function to call the next patient
 def call_next_patient(doctors):
     while True:
-        whosQueue = (input('whos queue should be called from? (as a number)\n'))
+        whosQueue = (input("whos queue should be called from? (as a number)\n"))
         try:
             whosQueue = int(whosQueue)
         except:
@@ -78,7 +77,7 @@ def add_patient(doctors):
 
 
 def main():  # main function
-    doctor_define(doctors)
+    doctors = doctor_define()
     while True:  # loop for input protection
         callOrQueue = str(input('do you want to (c)all the next patient, (a)dd a patient, or (r)edfine the doctor list\n'))
         # calling functions based on input
@@ -95,7 +94,7 @@ def main():  # main function
         elif callOrQueue == 'a':
             add_patient(doctors)
         elif callOrQueue == 'r':
-            doctor_define(doctors)
+            doctors = doctor_define()
         else:  # input protection
             print('invalid input')
 
